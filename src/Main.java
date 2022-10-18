@@ -10,5 +10,12 @@ public class Main {
         anna.hello();
         kate.hello();
         artem.hello();
+
+        Flower rose = new Flower("Rose", null, "Holland", 35.59, 0);
+        Flower chrysanthemum = new Flower("Chrysanthemum", null, null, 15, 5);
+        Flower peony = new Flower("Peony", null, "England", 69.9, 1);
+        Flower gypsophila = new Flower("Gypsophila", null, "Turkey", 10.5, 10);
+
+        rose.flowerInfo();
     }
 }

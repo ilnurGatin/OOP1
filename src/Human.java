@@ -1,8 +1,8 @@
 public class Human {
 
-    int yearOfBirth;
+    private int yearOfBirth;
     String name;
-    String city;
+    private String city;
     String jobTitle;
 
     Human(String name, int yearOfBirth, String city, String jobTitle) {
@@ -32,4 +32,26 @@ public class Human {
                 " году. Я работаю на должности " + jobTitle + ". Будем знакомы!");
     }
 
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        if (yearOfBirth > 0) {
+            this.yearOfBirth = yearOfBirth;
+        } else {
+            this.yearOfBirth = 0;
+        }
+    }
+    public void setCity(String city) {
+        if (city != null && !city.isEmpty() && !city.isBlank()) {
+            this.city = city;
+        } else {
+            this.city = "'Информация не указана'";
+        }
+    }
 }
