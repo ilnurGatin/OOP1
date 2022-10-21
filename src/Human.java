@@ -1,35 +1,37 @@
 public class Human {
 
-    int yearOfBirth;
+    private int yearOfBirth;
     String name;
-    String city;
+    private String city;
     String jobTitle;
 
     Human(String name, int yearOfBirth, String city, String jobTitle) {
-        if (yearOfBirth >= 0) {
-            this.yearOfBirth = yearOfBirth;
-        } else {
-            this.yearOfBirth = 0;
-        }
-        this.city = city;
-        this.name = name;
-        this.jobTitle = jobTitle;
+        setYearOfBirth(yearOfBirth);
+        setCity(city);
+        this.name = ValidationUtils.validOrDefault(name, "'Информация не указана'");
+        this.jobTitle = ValidationUtils.validOrDefault(jobTitle, "'Информация не указана'");
     }
 
-        Human(int yearOfBirth) {
-        if (this.yearOfBirth >= 0) {
-            this.yearOfBirth = yearOfBirth;
-        } else {
-            this.yearOfBirth = 0;
-        }
-        this.city = "'Информация не указана'";
-        this.name = "'Информация не указана'";
-        this.jobTitle = "'Информация не указана'";
-    }
 
     void hello() {
         System.out.println("Привет! Меня зовут " + name + ". Я из города " + city + ". Я родился в " + yearOfBirth +
                 " году. Я работаю на должности " + jobTitle + ". Будем знакомы!");
     }
 
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        this.yearOfBirth = yearOfBirth >= 0 ? yearOfBirth : 0;
+    }
+    public void setCity(String city) {
+        this.city = ValidationUtils.validOrDefault(city, "'Информация не указана'");
+        }
 }
+
+
